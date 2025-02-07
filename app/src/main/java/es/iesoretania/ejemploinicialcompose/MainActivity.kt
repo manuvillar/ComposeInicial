@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
@@ -36,8 +37,8 @@ fun AppScreen() {
     ) {
         // Estado para manejar el texto ingresado (recoge la elevación de estado)
         var inputText by remember { mutableStateOf("") }
-        // Estado para manejar el contador
-        var contador by remember { mutableIntStateOf(0) }
+        // Estado para manejar el contador (Se mantiene el estado de la variable)
+        var contador by rememberSaveable { mutableIntStateOf(0) }
 
         // Muestra el valor del contador
         Text(text = "Contador: $contador", style = TextStyle(fontSize = 24.sp))
